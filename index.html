@@ -5,26 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <title>Rissoto de setas</title>
-  <link rel="stylesheet" href="main.css">
+  <title>🍛✨ Rissoto de setas</title>
+  <link rel="stylesheet" href="./main.css">
 </head>
 <body>
     <div class="container">
         <div class="row">
           <div class="col-sm row__center-column">
-              <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
+              <div class="card card-item" style="width: 40rem;">
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h6>Ingredientes <span class="badge badge-secondary">New</span></h6>
+                    <h1 class="card-title">Nombre del plato</h1>
+                    <a href="#" class="card-link">Seleccionar todo</a>
+                    <span>|</span>
+                    <a href="#" class="card-link">Deseleccionar todo</a>
                   </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
+
+                  <ul class="list-group list-group-flush list__ingredients">
+
+                    <li class="list-group-item list__item">
+                      <div class="item__input-wrapper" >
+                      <input type="checkbox" aria-label="Checkbox for following text input">
+                      <input type="number" class="input__item-number" aria-label="Text input with checkbox">
+                      <ul class="item__list">
+                        <li class="item__description">Artículo</li>
+                        <li class="item__description">Marca</li>
+                        <li class="item__description">X Kg</li>
+                      </ul>
+                    </div>
+                      <div class="item__price">
+                        <p class="price text-success">9,99€</p>
+                      </div>
+                    </li>
+
                   </ul>
+
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Items:</li>
+                      <li class="list-group-item border-none">Subtotal</li>
+                      <li class="list-group-item border-none">Gastos de envío</li>
+                      <li class="list-group-item border-none">
+                        <p>Total</p>
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                              </div>
+                              <input type="text" class="form-control" aria-label="Text input with checkbox">
+                              <div class="input-group-append">
+                                <span class="input-group-text text-success">€</span>
+                                <span class="input-group-text text-success">9.00</span>
+                              </div>
+                            </div>
+                      </li>
+                    </ul>
+              
                   <div class="card-body">
-                    <a href="#" class="btn btn-success">Go somewhere</a>
+                    <a href="#" class="btn btn-success">Comprar ingredientes 9€</a>
                   </div>
               </div>
           </div>
@@ -34,5 +69,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="./index.js"></script>
 </body>
 </html>

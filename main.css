@@ -1,10 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .row__center-column{
   display: flex;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
 }
 
-.card {
-  align-self: center;
+.list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+
+.list__item:hover {
+  background-color: #E9ECEF;
+}
+
+.item__input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input__item-number {
+  width: 50px;
+  height: 50px;
+  margin:10px;
+  padding:6px;
+}
+
+.item__list {
+  list-style: none;
+}
+
+.price {
+  margin:0;
+}
+
+
+.border-none {
+  border:none; 
 }
