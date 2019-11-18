@@ -57,8 +57,7 @@ function calculateTotalPrice () {
     acc += ingredient.price*ingredient.amount;
     return acc;
   } , 0);
-  totalPrice = totalPrice + shippingCost;
-  console.log(totalPrice);
+  totalPrice = totalPrice.toFixed(2); + shippingCost;
   formTotal.value = 'TOTAL';
   amountTotalPrice.innerHTML = totalPrice + recipeData.recipe.currency;
   buttonTextTotalPrice.innerHTML = totalPrice + recipeData.recipe.currency;
