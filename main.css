@@ -41,6 +41,10 @@
   margin:0;
 }
 
+.list__prices-total {
+  text-align: end;
+}
+
 
 .border-none {
   border:none; 
