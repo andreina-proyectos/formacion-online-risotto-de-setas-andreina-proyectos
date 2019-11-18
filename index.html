@@ -9,13 +9,16 @@
   <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-  <div class="container">
+    <video loop="loop" id="video_background" autoplay>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+  <div id="video_pattern" class="container z-index="20>
     <div class="row">
-      <div class="col-sm row__center-column">
-        <div class="card card-item" style="width: 40rem;">
+      <div class="col-sm row__center-column background-row">
+        <div class="card card-item card__ingredients" style="width: 40rem;">
           <div class="card-body">
             <h6>Ingredientes <span class="badge badge-secondary">New</span></h6>
-            <h1 class="card-title">Nombre del plato</h1>
+            <h1 class="card-title card__dish-title"></h1>
             <a href="#" class="card-link">Seleccionar todo</a>
             <span>|</span>
             <a href="#" class="card-link">Deseleccionar todo</a>

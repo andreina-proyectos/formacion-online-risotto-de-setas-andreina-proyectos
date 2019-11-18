@@ -3,11 +3,32 @@
   margin: 0;
 }
 
+body {
+  background-color: transparent;
+}
+
+#video_background {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  position: fixed;
+}
+
 .row__center-column{
   display: flex;
   justify-content: center;
   min-height: 100vh;
   align-items: center;
+}
+
+.card__ingredients {
+  background:#fff;
+  opacity: 0.9;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .list__item {

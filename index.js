@@ -8,6 +8,8 @@ const shippingCost = recipeData.recipe['shipping-cost'];
 const amountTotalPrice = document.querySelector('.total-price');
 const buttonTextTotalPrice = document.querySelector('.btn__total-price');
 const formTotal = document.querySelector('.form-control-total');
+const dishTitle = document.querySelector('.card__dish-title');
+dishTitle.innerHTML = recipeData.recipe.name;
 
 function createIngredienteElement (ingredient, index) {
   return `
