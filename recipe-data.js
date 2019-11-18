@@ -1,4 +1,4 @@
-const data = {
+export const recipeData = {
   "recipe": {
     "name": "Risotto de setas (vegano)",
     "shipping-cost": 7,
@@ -53,5 +53,3 @@ const data = {
     ]
   }
 }
-
-export default {data};
