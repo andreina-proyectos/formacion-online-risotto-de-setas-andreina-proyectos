@@ -4,6 +4,10 @@ const listIngredients = document.querySelector('.list__ingredients');
 let listIngredientsArray = [];
 let myBag = [];
 console.log(recipeData);
+const shippingCost = recipeData.recipe['shipping-cost'];
+const amountTotalPrice = document.querySelector('.total-price');
+const buttonTextTotalPrice = document.querySelector('.btn__total-price');
+const formTotal = document.querySelector('.form-control-total');
 
 function createIngredienteElement (ingredient, index) {
   return `
@@ -30,13 +34,32 @@ function handleChangeCheckbox (event) {
   if (checkboxSelected.checked) {
     console.log('estoy checkeado');
     const amountInput = checkboxSelected.nextElementSibling;
-    listIngredientsArray[checkboxIndex].amount = amountInput.value;
+    if(amountInput.value) {
+      listIngredientsArray[checkboxIndex].amount = parseInt(amountInput.value);
+    }
+    else {
+      amountInput.value = 1;
+      listIngredientsArray[checkboxIndex].amount = 1;
+    }
   }
   else {
     listIngredientsArray[checkboxIndex].amount = 0;
   }
 
   console.log(listIngredientsArray);
+  calculateTotalPrice();
+}
+
+function calculateTotalPrice () {
+  let totalPrice = listIngredientsArray.reduce((acc, ingredient) => {
+    acc += ingredient.price*ingredient.amount;
+    return acc;
+  } , 0);
+  totalPrice = totalPrice + shippingCost;
+  console.log(totalPrice);
+  formTotal.value = 'TOTAL';
+  amountTotalPrice.innerHTML = totalPrice + recipeData.recipe.currency;
+  buttonTextTotalPrice.innerHTML = totalPrice + recipeData.recipe.currency;
 }
 
 recipeData.recipe.ingredients.forEach((ingredient, index) => {
