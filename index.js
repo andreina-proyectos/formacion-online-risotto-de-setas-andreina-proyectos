@@ -2,13 +2,14 @@
 import {recipeData} from './recipe-data.js';
 const listIngredients = document.querySelector('.list__ingredients');
 let listIngredientsArray = [];
-let myBag = [];
 const shippingCost = recipeData.recipe['shipping-cost'];
 const amountTotalPrice = document.querySelector('.total-price');
 const buttonTextTotalPrice = document.querySelector('.btn__total-price');
 const formTotal = document.querySelector('.form-control-total');
 const dishTitle = document.querySelector('.card__dish-title');
 dishTitle.innerHTML = recipeData.recipe.name;
+const numberOfItem = document.querySelector('.list__prices-total__number-item');
+const selectAllItems = document.querySelector('.card__select-all');
 
 function createIngredienteElement (ingredient, index) {
   return `
@@ -28,10 +29,18 @@ function createIngredienteElement (ingredient, index) {
     </li>`
 }
 
+function handleSelectAllItems () {
+  const allCheckbox = document.querySelectorAll('.item__checkbox');
+  for(let i=0; i < allCheckbox.length; i++) {
+    allCheckbox[i].checked = true;
+    var event = new Event('change');
+    allCheckbox[i].dispatchEvent(event);
+  }
+}
+
 function handleChangeCheckbox (event) {
   const checkboxSelected = event.currentTarget;
   const checkboxIndex = checkboxSelected.getAttribute('data-item-type');
-
   if (checkboxSelected.checked) {
     const amountInput = checkboxSelected.nextElementSibling;
     if(amountInput.value) {
@@ -76,3 +85,4 @@ for (let checkbox of allCheckbox) {
   checkbox.addEventListener('change', handleChangeCheckbox);
 }
 
+selectAllItems.addEventListener('click', handleSelectAllItems);
