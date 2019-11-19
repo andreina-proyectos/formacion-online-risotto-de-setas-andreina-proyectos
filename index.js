@@ -3,7 +3,6 @@ import {recipeData} from './recipe-data.js';
 const listIngredients = document.querySelector('.list__ingredients');
 let listIngredientsArray = [];
 let myBag = [];
-console.log(recipeData);
 const shippingCost = recipeData.recipe['shipping-cost'];
 const amountTotalPrice = document.querySelector('.total-price');
 const buttonTextTotalPrice = document.querySelector('.btn__total-price');
@@ -34,7 +33,6 @@ function handleChangeCheckbox (event) {
   const checkboxIndex = checkboxSelected.getAttribute('data-item-type');
 
   if (checkboxSelected.checked) {
-    console.log('estoy checkeado');
     const amountInput = checkboxSelected.nextElementSibling;
     if(amountInput.value) {
       listIngredientsArray[checkboxIndex].amount = parseInt(amountInput.value);
@@ -47,8 +45,6 @@ function handleChangeCheckbox (event) {
   else {
     listIngredientsArray[checkboxIndex].amount = 0;
   }
-
-  console.log(listIngredientsArray);
   calculateTotalPrice();
 }
 
@@ -57,10 +53,10 @@ function calculateTotalPrice () {
     acc += ingredient.price*ingredient.amount;
     return acc;
   } , 0);
-  totalPrice = totalPrice.toFixed(2); + shippingCost;
+  totalPrice = totalPrice + shippingCost;
   formTotal.value = 'TOTAL';
-  amountTotalPrice.innerHTML = totalPrice + recipeData.recipe.currency;
-  buttonTextTotalPrice.innerHTML = totalPrice + recipeData.recipe.currency;
+  amountTotalPrice.innerHTML = totalPrice.toFixed(2) + recipeData.recipe.currency;
+  buttonTextTotalPrice.innerHTML = totalPrice.toFixed(2) + recipeData.recipe.currency;
 }
 
 recipeData.recipe.ingredients.forEach((ingredient, index) => {
@@ -74,9 +70,6 @@ recipeData.recipe.ingredients.forEach((ingredient, index) => {
     }
   )
 })
-
-console.log(listIngredientsArray);
-
 
 const allCheckbox = document.querySelectorAll('.item__checkbox');
 for (let checkbox of allCheckbox) {
