@@ -10,6 +10,7 @@ const dishTitle = document.querySelector('.card__dish-title');
 dishTitle.innerHTML = recipeData.recipe.name;
 const numberOfItem = document.querySelector('.list__prices-total__number-item');
 const selectAllItems = document.querySelector('.card__select-all');
+const unSelectAllItems = document.querySelector('.card__unselect-all');
 
 function createIngredienteElement (ingredient, index) {
   return `
@@ -33,6 +34,15 @@ function handleSelectAllItems () {
   const allCheckbox = document.querySelectorAll('.item__checkbox');
   for(let i=0; i < allCheckbox.length; i++) {
     allCheckbox[i].checked = true;
+    var event = new Event('change');
+    allCheckbox[i].dispatchEvent(event);
+  }
+}
+
+function handleUnSelectAllItems () {
+  const allCheckbox = document.querySelectorAll('.item__checkbox');
+  for(let i=0; i < allCheckbox.length; i++) {
+    allCheckbox[i].checked = false;
     var event = new Event('change');
     allCheckbox[i].dispatchEvent(event);
   }
@@ -86,3 +96,4 @@ for (let checkbox of allCheckbox) {
 }
 
 selectAllItems.addEventListener('click', handleSelectAllItems);
+unSelectAllItems.addEventListener('click', handleUnSelectAllItems);
