@@ -74,11 +74,12 @@ function calculateTotalPrice () {
     acc += ingredient.price*ingredient.amount;
     return acc;
   } , 0);
-  subtotalOfItems.innerHTML = `Subtotal: ${totalPrice.toFixed(2)}`;
+  const currency = recipeData.recipe.currency;
+  subtotalOfItems.innerHTML = `Subtotal: ${totalPrice.toFixed(2)} ${currency}`;
   totalPrice = totalPrice + shippingCost;
   formTotal.value = 'TOTAL';
-  amountTotalPrice.innerHTML = totalPrice.toFixed(2) + recipeData.recipe.currency;
-  buttonTextTotalPrice.innerHTML = totalPrice.toFixed(2) + recipeData.recipe.currency;
+  amountTotalPrice.innerHTML = totalPrice.toFixed(2) + currency;
+  buttonTextTotalPrice.innerHTML = totalPrice.toFixed(2) + currency;
 }
 
 recipeData.recipe.ingredients.forEach((ingredient, index) => {
