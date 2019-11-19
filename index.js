@@ -8,9 +8,9 @@ const buttonTextTotalPrice = document.querySelector('.btn__total-price');
 const formTotal = document.querySelector('.form-control-total');
 const dishTitle = document.querySelector('.card__dish-title');
 dishTitle.innerHTML = recipeData.recipe.name;
-const numberOfItem = document.querySelector('.list__prices-total__number-item');
 const selectAllItems = document.querySelector('.card__select-all');
 const unSelectAllItems = document.querySelector('.card__unselect-all');
+const numberOfItems = document.querySelector('.list__items-amount');
 
 function createIngredienteElement (ingredient, index) {
   return `
@@ -65,6 +65,7 @@ function handleChangeCheckbox (event) {
     listIngredientsArray[checkboxIndex].amount = 0;
   }
   calculateTotalPrice();
+  calculateAllItemsNumber ();
 }
 
 function calculateTotalPrice () {
@@ -90,10 +91,20 @@ recipeData.recipe.ingredients.forEach((ingredient, index) => {
   )
 })
 
+function calculateAllItemsNumber () {
+  const allInput = document.querySelectorAll('.input__item-number');
+  let totalItemsAmount = listIngredientsArray.reduce((acc, ingredient) => {
+    acc += ingredient.amount;
+    return acc;
+  } , 0);
+  console.log(totalItemsAmount);
+  numberOfItems.innerHTML = `Items: ${totalItemsAmount}`;
+}
+
+//listeners
+selectAllItems.addEventListener('click', handleSelectAllItems);
+unSelectAllItems.addEventListener('click', handleUnSelectAllItems);
 const allCheckbox = document.querySelectorAll('.item__checkbox');
 for (let checkbox of allCheckbox) {
   checkbox.addEventListener('change', handleChangeCheckbox);
 }
-
-selectAllItems.addEventListener('click', handleSelectAllItems);
-unSelectAllItems.addEventListener('click', handleUnSelectAllItems);
