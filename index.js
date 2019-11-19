@@ -20,7 +20,7 @@ function createIngredienteElement (ingredient, index) {
         <input data-item-type="${ingredient.product}" type="number" class="input__item-number" aria-label="Text input with checkbox">
         <ul class="item__list">
           <li class="item__description">Artículo: ${ingredient.product}</li>
-          <li class="item__description">Marca: ${ingredient.branch}</li>
+          <li class="item__description">Marca: ${ingredient.brand? ingredient.brand : 'Desconocida'}</li>
           <li class="item__description">${ingredient.quantity}</li>
         </ul>
       </div>
