@@ -11,6 +11,7 @@ dishTitle.innerHTML = recipeData.recipe.name;
 const selectAllItems = document.querySelector('.card__select-all');
 const unSelectAllItems = document.querySelector('.card__unselect-all');
 const numberOfItems = document.querySelector('.list__items-amount');
+const subtotalOfItems = document.querySelector('.list__items-subtotal');
 
 function createIngredienteElement (ingredient, index) {
   return `
@@ -73,6 +74,7 @@ function calculateTotalPrice () {
     acc += ingredient.price*ingredient.amount;
     return acc;
   } , 0);
+  subtotalOfItems.innerHTML = `Subtotal: ${totalPrice.toFixed(2)}`;
   totalPrice = totalPrice + shippingCost;
   formTotal.value = 'TOTAL';
   amountTotalPrice.innerHTML = totalPrice.toFixed(2) + recipeData.recipe.currency;
